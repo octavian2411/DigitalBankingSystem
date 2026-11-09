@@ -1,0 +1,8 @@
+# Let git normalise line endings for text files
+* text=auto
+
+# Shell scripts must keep LF, Windows scripts must keep CRLF
+mvnw text eol=lf
+*.sh text eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf

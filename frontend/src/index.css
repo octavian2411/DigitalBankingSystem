@@ -1,0 +1,140 @@
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #1f2933;
+  --muted: #6b7280;
+  --border: #e3e7ec;
+  --primary: #2457c5;
+  --primary-hover: #1c469f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px 16px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+}
+
+#root {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 16px 0;
+}
+
+section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
+}
+
+td button {
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
+td:last-child {
+  white-space: nowrap;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+input, select, button {
+  font: inherit;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
+input:focus, select:focus {
+  outline: 2px solid rgba(36, 87, 197, 0.25);
+  border-color: var(--primary);
+}
+
+button {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+li {
+  padding: 4px 0;
+}
+
+.error {
+  background: #fdecec;
+  border: 1px solid #f5c2c2;
+  color: #a12020;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.COMPLETED, .REJECTED, .PENDING {
+  font-weight: 600;
+}
+
+.COMPLETED { color: #1a7f37; }
+.REJECTED { color: #c62828; }
+.PENDING { color: #b26a00; }
