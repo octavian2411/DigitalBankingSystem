@@ -3,7 +3,7 @@
 
 ## Design patterns
 
-Factory Method (account creation), Strategy (transfer fees), State (transaction lifecycle), Observer (notifications and audit).
+Factory Method (account creation), Strategy (transfer fees), Chain of Responsibility (transfer validation), State (transaction lifecycle), Observer (notifications and audit).
 
 ## Running
 

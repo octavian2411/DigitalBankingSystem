@@ -8,7 +8,6 @@ import com.sdt.banking.service.AccountService;
 import com.sdt.banking.service.CustomerService;
 import com.sdt.banking.dto.CustomerRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,12 +29,6 @@ public class CustomerController {
     @GetMapping("/{id}")
     public Customer get(@PathVariable Long id) {
         return customerService.get(id);
-    }
-
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public Customer create(@RequestBody CustomerRequest request) {
-        return customerService.create(request.name(), request.email());
     }
 
     @PutMapping("/{id}")

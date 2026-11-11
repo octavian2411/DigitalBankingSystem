@@ -21,7 +21,6 @@ public class AccountController {
     private final TransferService transferService;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public Account open(@RequestBody OpenAccountRequest request) {
         return accountService.openAccount(request.customerId(), request.type(), request.initialDeposit());
     }
