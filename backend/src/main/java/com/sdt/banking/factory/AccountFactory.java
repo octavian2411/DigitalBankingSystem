@@ -6,7 +6,7 @@ import com.sdt.banking.model.AccountType;
 import java.math.BigDecimal;
 import java.util.concurrent.atomic.AtomicLong;
 
-public abstract class AccountCreator {
+public abstract class AccountFactory {
 
     private static final AtomicLong IBAN_SEQUENCE = new AtomicLong(1);
 
@@ -18,7 +18,7 @@ public abstract class AccountCreator {
         return account;
     }
 
-    public abstract Account createAccount(String iban, Long ownerId);
+    protected abstract Account createAccount(String iban, Long ownerId);
 
     public abstract AccountType supportedType();
 

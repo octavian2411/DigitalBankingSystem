@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 @Component
-public class SavingsAccountCreator extends AccountCreator {
+public class SavingsAccountFactory extends AccountFactory {
 
     private static final BigDecimal TRANSFER_FEE_RATE = new BigDecimal("0.01");
     private static final BigDecimal INTEREST_RATE = new BigDecimal("0.02");

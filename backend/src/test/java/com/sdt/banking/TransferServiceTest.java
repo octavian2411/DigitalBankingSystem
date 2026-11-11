@@ -4,9 +4,9 @@ import com.sdt.banking.model.Account;
 import com.sdt.banking.model.AccountStatus;
 import com.sdt.banking.model.AccountType;
 import com.sdt.banking.model.Customer;
+import com.sdt.banking.repository.CustomerRepository;
 import com.sdt.banking.repository.NotificationRepository;
 import com.sdt.banking.service.AccountService;
-import com.sdt.banking.service.CustomerService;
 import com.sdt.banking.service.TransferService;
 import com.sdt.banking.transaction.Transaction;
 import com.sdt.banking.transaction.TransactionStatus;
@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class TransferServiceTest {
 
     @Autowired
-    private CustomerService customerService;
+    private CustomerRepository customerRepository;
     @Autowired
     private AccountService accountService;
     @Autowired
@@ -33,8 +33,8 @@ class TransferServiceTest {
 
     @Test
     void savingsTransferChargesFeeAndNotifiesBothCustomers() {
-        Customer sender = customerService.create("Sender", "s@test.com");
-        Customer receiver = customerService.create("Receiver", "r@test.com");
+        Customer sender = customerRepository.save(new Customer("Sender", "s@test.com"));
+        Customer receiver = customerRepository.save(new Customer("Receiver", "r@test.com"));
         Account savings = accountService.openAccount(sender.getId(), AccountType.SAVINGS, new BigDecimal("1000.00"));
         Account checking = accountService.openAccount(receiver.getId(), AccountType.CHECKING, BigDecimal.ZERO);
 
@@ -50,7 +50,7 @@ class TransferServiceTest {
 
     @Test
     void transferIsRejectedWhenFundsAreMissing() {
-        Customer customer = customerService.create("Poor", "p@test.com");
+        Customer customer = customerRepository.save(new Customer("Poor", "p@test.com"));
         Account a = accountService.openAccount(customer.getId(), AccountType.CHECKING, new BigDecimal("50.00"));
         Account b = accountService.openAccount(customer.getId(), AccountType.CHECKING, BigDecimal.ZERO);
 
@@ -62,7 +62,7 @@ class TransferServiceTest {
 
     @Test
     void transferIsRejectedWhenAccountIsFrozen() {
-        Customer customer = customerService.create("Frozen", "f@test.com");
+        Customer customer = customerRepository.save(new Customer("Frozen", "f@test.com"));
         Account a = accountService.openAccount(customer.getId(), AccountType.CHECKING, new BigDecimal("50.00"));
         Account b = accountService.openAccount(customer.getId(), AccountType.CHECKING, BigDecimal.ZERO);
         accountService.changeStatus(a.getId(), AccountStatus.FROZEN);

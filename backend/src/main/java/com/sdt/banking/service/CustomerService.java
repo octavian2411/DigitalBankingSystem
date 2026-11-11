@@ -14,10 +14,6 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    public Customer create(String name, String email) {
-        return customerRepository.save(new Customer(name, email));
-    }
-
     public Customer update(Long id, String name, String email) {
         Customer customer = get(id);
         customer.update(name, email);

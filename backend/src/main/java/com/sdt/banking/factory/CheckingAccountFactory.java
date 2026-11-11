@@ -7,7 +7,7 @@ import com.sdt.banking.model.CheckingAccount;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CheckingAccountCreator extends AccountCreator {
+public class CheckingAccountFactory extends AccountFactory {
 
     @Override
     public Account createAccount(String iban, Long ownerId) {
